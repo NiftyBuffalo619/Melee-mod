@@ -1,19 +1,21 @@
 package wannabeNifty.meleemod.items;
 
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
+import wannabeNifty.meleemod.init.ModItems;
 
 public class TelescopicBaton extends SwordItem {
-    private static final float AttackDamage = 4.0f;
+    private static final int AttackDamage = 15;
 
-    public TelescopicBaton(Tier tier, int i, float f, Properties properties) {
-        super(tier, i, f, properties);
+    public TelescopicBaton(Tier tier, int bonus_attack, float attack_speed, Item.Properties properties) {
+        super(tier , bonus_attack , attack_speed , properties);
     }
 
-    @Override
-    public float getDamage() {
-        return this.AttackDamage;
+   /* @Override
+    public void setDamage(ItemStack stack, int damage) {
+        super.setDamage(stack, AttackDamage);
     }
-
+    */
 }

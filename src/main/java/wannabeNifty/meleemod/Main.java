@@ -23,6 +23,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
+import wannabeNifty.meleemod.init.ModItems;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(Main.MODID)
@@ -57,6 +58,7 @@ public class Main
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
 
+        ModItems.Init(modEventBus);
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
     }
@@ -70,6 +72,7 @@ public class Main
 
     private void addCreative(CreativeModeTabEvent.BuildContents event)
     {
+        ModItems.AddInventoryItems(event);
         if (event.getTab() == CreativeModeTabs.BUILDING_BLOCKS)
             event.accept(EXAMPLE_BLOCK_ITEM);
     }
